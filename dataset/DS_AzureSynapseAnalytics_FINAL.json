@@ -1,0 +1,16 @@
+{
+	"name": "DS_AzureSynapseAnalytics_FINAL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_AzureSYNAPSEANALYTICS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "DBO",
+			"table": "DIMCUST"
+		}
+	}
+}
