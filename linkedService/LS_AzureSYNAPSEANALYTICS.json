@@ -1,0 +1,12 @@
+{
+	"name": "LS_AzureSYNAPSEANALYTICS",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDW",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=projectserver0101.database.windows.net;initial catalog=projecta;user id=Balraj8465",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQENBOEUzQjRBLTQ0REYtNDJCRS1CMUU4LUJDRkZDODFCRTczNF83ODExYWQ1Zi02MjM2LTRmYWYtYTg1MC1jMTg0ODVlMTNmMWUiDQp9"
+		}
+	}
+}
