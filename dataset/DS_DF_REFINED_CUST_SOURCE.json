@@ -1,12 +1,12 @@
 {
-	"name": "DS_DF_CUST_source",
+	"name": "DS_DF_REFINED_CUST_SOURCE",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ADLSGEN2",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"df_ds_date": {
+			"OK": {
 				"type": "string"
 			}
 		},
@@ -16,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "raw/cust/@{formatDateTime(dataset().df_ds_date,'yyyy')}/@{formatDateTime(dataset().df_ds_date,'MM')}/@{formatDateTime(dataset().df_ds_date,'dd')}",
+					"value": "processeddata/cust/@{formatDateTime(dataset().OK,'yyyy')}/@{formatDateTime(dataset().OK,'MM')}/@{formatDateTime(dataset().OK,'dd')}",
 					"type": "Expression"
 				},
 				"fileSystem": "global"
@@ -26,6 +26,19 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "cid",
+				"type": "String"
+			},
+			{
+				"name": "cname",
+				"type": "String"
+			},
+			{
+				"name": "clocattion",
+				"type": "String"
+			}
+		]
 	}
 }

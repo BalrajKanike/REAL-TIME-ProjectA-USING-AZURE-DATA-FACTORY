@@ -1,5 +1,5 @@
 {
-	"name": "DF_CUST_PROCESSED_PIPELINE",
+	"name": "PL_DF_REFINED_FINAL",
 	"properties": {
 		"activities": [
 			{
@@ -16,11 +16,17 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "dataflow1_cust",
+						"referenceName": "dataflow_REFINED",
 						"type": "DataFlowReference",
 						"datasetParameters": {
 							"source1": {
-								"df_ds_date": {
+								"OK": {
+									"value": "@utcnow()",
+									"type": "Expression"
+								}
+							},
+							"source2": {
+								"DSPAR": {
 									"value": "@utcnow()",
 									"type": "Expression"
 								}

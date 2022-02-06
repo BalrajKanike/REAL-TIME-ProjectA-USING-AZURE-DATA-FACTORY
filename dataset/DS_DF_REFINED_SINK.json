@@ -1,5 +1,5 @@
 {
-	"name": "DS_DF_CUST_SINK",
+	"name": "DS_DF_REFINED_SINK",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ADLSGEN2",
@@ -10,14 +10,12 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": {
-					"value": "processeddata/cust/@{formatDateTime(utcnow(),'yyyy')}/@{formatDateTime(utcnow(),'MM')}//@{formatDateTime(utcnow(),'dd')}",
-					"type": "Expression"
-				},
+				"folderPath": "refineddata/dimcust",
 				"fileSystem": "global"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": []

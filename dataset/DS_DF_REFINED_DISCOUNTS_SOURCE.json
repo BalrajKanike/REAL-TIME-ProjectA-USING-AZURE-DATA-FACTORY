@@ -1,12 +1,12 @@
 {
-	"name": "DS_DF_CUST_source",
+	"name": "DS_DF_REFINED_DISCOUNTS_SOURCE",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ADLSGEN2",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"df_ds_date": {
+			"DSPAR": {
 				"type": "string"
 			}
 		},
@@ -16,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "raw/cust/@{formatDateTime(dataset().df_ds_date,'yyyy')}/@{formatDateTime(dataset().df_ds_date,'MM')}/@{formatDateTime(dataset().df_ds_date,'dd')}",
+					"value": "processeddata/discounts/@{formatDateTime(dataset().DSPAR,'yyyy')}/@{formatDateTime(dataset().DSPAR,'MM')}/@{formatDateTime(dataset().DSPAR,'dd')}",
 					"type": "Expression"
 				},
 				"fileSystem": "global"
@@ -26,6 +26,15 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "cid",
+				"type": "String"
+			},
+			{
+				"name": "discount",
+				"type": "String"
+			}
+		]
 	}
 }

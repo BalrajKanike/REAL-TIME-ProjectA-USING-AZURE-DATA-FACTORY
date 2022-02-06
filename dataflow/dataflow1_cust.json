@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DS_Rawdataset_dataflowsource1",
+						"referenceName": "DS_DF_CUST_source",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DS_DfCUST_SINK",
+						"referenceName": "DS_DF_CUST_SINK",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"

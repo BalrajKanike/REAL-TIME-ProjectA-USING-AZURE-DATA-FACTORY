@@ -1,9 +1,14 @@
 {
-	"name": "DS_DF_CUST_SINK",
+	"name": "Ds_DF_ORDERS_source",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ADLSGEN2",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"DF_DS_DATE2": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
@@ -11,13 +16,14 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "processeddata/cust/@{formatDateTime(utcnow(),'yyyy')}/@{formatDateTime(utcnow(),'MM')}//@{formatDateTime(utcnow(),'dd')}",
+					"value": "raw/orders/@{formatDateTime(dataset().DF_DS_DATE2,'yyyy')}/@{formatDateTime(dataset().DF_DS_DATE2,'MM')}/@{formatDateTime(dataset().DF_DS_DATE2,'dd')}",
 					"type": "Expression"
 				},
 				"fileSystem": "global"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": []

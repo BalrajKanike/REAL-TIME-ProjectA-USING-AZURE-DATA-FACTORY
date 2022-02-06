@@ -1,5 +1,5 @@
 {
-	"name": "DF_CUST_PROCESSED_PIPELINE",
+	"name": "DF_ORDERS_PROCESSED_PIPELINE",
 	"properties": {
 		"activities": [
 			{
@@ -16,11 +16,17 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "dataflow1_cust",
+						"referenceName": "dataflow_order",
 						"type": "DataFlowReference",
 						"datasetParameters": {
 							"source1": {
-								"df_ds_date": {
+								"DF_DS_DATE2": {
+									"value": "@utcnow()",
+									"type": "Expression"
+								}
+							},
+							"sink1": {
+								"sinkdate": {
 									"value": "@utcnow()",
 									"type": "Expression"
 								}

@@ -1,0 +1,28 @@
+{
+	"name": "dataflow_DISCOUNTS",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_DF_DISCOUNTS_SOURCE",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Ds_DF_discounts_sink",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\tcid as integer,\n\t\tdiscount as integer\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\t{3} as string,\n\t\tkrishna as string,\n\t\tbangalore as string\n\t),\n\tumask: 0022,\n\tpreCommands: [],\n\tpostCommands: [],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+		}
+	}
+}

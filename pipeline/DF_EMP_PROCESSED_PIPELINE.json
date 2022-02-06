@@ -1,5 +1,5 @@
 {
-	"name": "DF_CUST_PROCESSED_PIPELINE",
+	"name": "DF_EMP_PROCESSED_PIPELINE",
 	"properties": {
 		"activities": [
 			{
@@ -16,11 +16,17 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "dataflow1_cust",
+						"referenceName": "dataflow_EMP",
 						"type": "DataFlowReference",
 						"datasetParameters": {
 							"source1": {
-								"df_ds_date": {
+								"sourcedate": {
+									"value": "@utcnow()",
+									"type": "Expression"
+								}
+							},
+							"sink1": {
+								"emppar": {
 									"value": "@utcnow()",
 									"type": "Expression"
 								}

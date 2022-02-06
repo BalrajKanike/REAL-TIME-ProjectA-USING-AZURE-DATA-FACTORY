@@ -1,0 +1,32 @@
+{
+	"name": "dataflow_order",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Ds_DF_ORDERS_source",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_DF_ORDER_SINK",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Filter1"
+				}
+			],
+			"script": "source(output(\n\t\toid as integer,\n\t\tordername as string,\n\t\tcid as integer\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 filter(not(isNull(ordername))) ~> Filter1\nFilter1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\t{3} as string,\n\t\tkrishna as string,\n\t\tbangalore as string\n\t),\n\tumask: 0022,\n\tpreCommands: [],\n\tpostCommands: [],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+		}
+	}
+}

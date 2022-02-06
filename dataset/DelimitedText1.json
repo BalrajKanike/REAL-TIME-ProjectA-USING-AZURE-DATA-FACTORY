@@ -1,5 +1,5 @@
 {
-	"name": "DS_DF_CUST_SINK",
+	"name": "DelimitedText1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ADLSGEN2",
@@ -10,16 +10,31 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": {
-					"value": "processeddata/cust/@{formatDateTime(utcnow(),'yyyy')}/@{formatDateTime(utcnow(),'MM')}//@{formatDateTime(utcnow(),'dd')}",
-					"type": "Expression"
-				},
+				"folderPath": "refineddata/dimcust",
 				"fileSystem": "global"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "cid",
+				"type": "String"
+			},
+			{
+				"name": "cname",
+				"type": "String"
+			},
+			{
+				"name": "clocattion",
+				"type": "String"
+			},
+			{
+				"name": "discount",
+				"type": "String"
+			}
+		]
 	}
 }

@@ -1,12 +1,12 @@
 {
-	"name": "DS_DF_CUST_source",
+	"name": "DS_DF_ORDER_SINK",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ADLSGEN2",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"df_ds_date": {
+			"sinkdate": {
 				"type": "string"
 			}
 		},
@@ -16,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "raw/cust/@{formatDateTime(dataset().df_ds_date,'yyyy')}/@{formatDateTime(dataset().df_ds_date,'MM')}/@{formatDateTime(dataset().df_ds_date,'dd')}",
+					"value": "processeddata/orders/@{formatDateTime(dataset().sinkdate,'yyyy')}/@{formatDateTime(dataset().sinkdate,'MM')}/@{formatDateTime(dataset().sinkdate,'dd')}",
 					"type": "Expression"
 				},
 				"fileSystem": "global"
@@ -26,6 +26,19 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "3",
+				"type": "String"
+			},
+			{
+				"name": "krishna",
+				"type": "String"
+			},
+			{
+				"name": "bangalore",
+				"type": "String"
+			}
+		]
 	}
 }

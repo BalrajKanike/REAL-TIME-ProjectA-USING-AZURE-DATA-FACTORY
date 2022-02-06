@@ -1,9 +1,14 @@
 {
-	"name": "DS_DF_CUST_SINK",
+	"name": "DS_DF_DISCOUNTS_SOURCE",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ADLSGEN2",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"DISCOUNTS": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
@@ -11,13 +16,14 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "processeddata/cust/@{formatDateTime(utcnow(),'yyyy')}/@{formatDateTime(utcnow(),'MM')}//@{formatDateTime(utcnow(),'dd')}",
+					"value": "raw/discounts/@{formatDateTime(dataset().DISCOUNTS,'yyyy')}/@{formatDateTime(dataset().DISCOUNTS,'MM')}/@{formatDateTime(dataset().DISCOUNTS,'dd')}",
 					"type": "Expression"
 				},
 				"fileSystem": "global"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": []
