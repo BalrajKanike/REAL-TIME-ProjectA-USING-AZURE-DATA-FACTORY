@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText1",
+	"name": "DS_AF_REFINED_SINK",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ADLSGEN2",
