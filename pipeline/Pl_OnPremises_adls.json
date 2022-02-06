@@ -104,7 +104,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "DS_Adls_Gen2_Sourcedataset",
+									"referenceName": "DS_Adls_Gen2_Sinkdataset",
 									"type": "DatasetReference",
 									"parameters": {
 										"sinktable": {
