@@ -16,8 +16,16 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "dataflow1",
-						"type": "DataFlowReference"
+						"referenceName": "dataflow1_cust",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"source1": {
+								"df_ds_date": {
+									"value": "@utcnow()",
+									"type": "Expression"
+								}
+							}
+						}
 					},
 					"compute": {
 						"coreCount": 8,

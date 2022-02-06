@@ -1,0 +1,25 @@
+{
+	"name": "DS_DfCUST_SINK",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLSGEN2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "processeddata/cust/@{formatDateTime(utcnow(),'yyyy')}/@{formatDateTime(utcnow(),'MM')}//@{formatDateTime(utcnow(),'dd')}",
+					"type": "Expression"
+				},
+				"fileSystem": "global"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

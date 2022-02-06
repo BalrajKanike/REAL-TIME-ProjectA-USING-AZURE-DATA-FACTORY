@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "dataflow1_cust",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -12,13 +12,27 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_DfCUST_SINK",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "Window1"
+				},
+				{
+					"name": "Filter1"
+				},
+				{
+					"name": "Select1"
 				}
 			],
-			"script": "source(output(\n\t\tcid as integer,\n\t\tcname as string,\n\t\tclocation as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 window(over(cid,\n\t\tcname,\n\t\tclocation),\n\tasc(cid, true),\n\trow_number = rowNumber()) ~> Window1"
+			"script": "source(output(\n\t\tcid as integer,\n\t\tcname as string,\n\t\tclocation as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 window(over(cid,\n\t\tcname,\n\t\tclocation),\n\tasc(cid, true),\n\trow_number = rowNumber()) ~> Window1\nWindow1 filter(equals(row_number,1)) ~> Filter1\nFilter1 select(mapColumn(\n\t\tcid,\n\t\tcname,\n\t\tclocation\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> Select1\nSelect1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tumask: 0022,\n\tpreCommands: [],\n\tpostCommands: [],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
 		}
 	}
 }
