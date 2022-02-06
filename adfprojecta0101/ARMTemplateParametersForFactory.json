@@ -8,6 +8,9 @@
 		"LS_ADLSGEN2_accountKey": {
 			"value": ""
 		},
+		"LS_AzureSYNAPSEANALYTICS_connectionString": {
+			"value": ""
+		},
 		"LS_SqlServer_onpremises_connectionString": {
 			"value": ""
 		},

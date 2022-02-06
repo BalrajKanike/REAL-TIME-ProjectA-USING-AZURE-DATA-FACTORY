@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_ADLSGEN2'"
 		},
+		"LS_AzureSYNAPSEANALYTICS_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_AzureSYNAPSEANALYTICS'"
+		},
 		"LS_SqlServer_onpremises_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_SqlServer_onpremises'"
@@ -53,8 +57,8 @@
 					"LS_ADLSGEN2_accountKey": {
 						"value": "[parameters('LS_ADLSGEN2_accountKey')]"
 					},
-					"LS_SqlServer_onpremises_connectionString": {
-						"value": "[parameters('LS_SqlServer_onpremises_connectionString')]"
+					"LS_AzureSYNAPSEANALYTICS_connectionString": {
+						"value": "[parameters('LS_AzureSYNAPSEANALYTICS_connectionString')]"
 					},
 					"LS_ADLSGEN2_properties_typeProperties_url": {
 						"value": "[parameters('LS_ADLSGEN2_properties_typeProperties_url')]"
@@ -79,6 +83,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"LS_SqlServer_onpremises_connectionString": {
+						"value": "[parameters('LS_SqlServer_onpremises_connectionString')]"
 					}
 				}
 			},
