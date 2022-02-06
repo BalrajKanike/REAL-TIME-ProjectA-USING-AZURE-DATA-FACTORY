@@ -1,0 +1,12 @@
+{
+	"name": "DS_SqlServer_LKP",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SqlServer_onpremises",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
